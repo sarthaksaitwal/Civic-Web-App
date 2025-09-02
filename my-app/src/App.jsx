@@ -1,30 +1,52 @@
 import React, { useState } from "react";
 import "./App.css";
+import Sidebar from "./components/Sidebar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import NewIssues from "./pages/NewIssues.jsx";
+import PendingIssues from "./pages/PendingIssues.jsx";
+import CompletedIssues from "./pages/CompletedIssues.jsx";
 
-function Login({ onLogin }) {
-  return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={e => { e.preventDefault(); onLogin(); }}>
-        <h2>Login</h2>
-        <input type="text" placeholder="Username" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Sign In</button>
-      </form>
-    </div>
-  );
-}
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [page, setPage] = useState("login");
+
+  // Map page to sidebar active key
+  const getSidebarActive = () => {
+    if (page === "dashboard") return "dashboard";
+    if (page === "newissues" || page === "pendingissues" || page === "completedissues") return "issues";
+    if (page === "profile") return "profile";
+    if (page === "reports") return "reports";
+    if (page === "settings") return "settings";
+    return "";
+  };
 
   return (
     <div className="app">
-      {isAuthenticated ? (
-        <Dashboard />
-      ) : (
-        <Login onLogin={() => setIsAuthenticated(true)} />
+      {page !== "login" && (
+        <Sidebar active={getSidebarActive()} onNavigate={setPage} />
       )}
+      <div style={{ marginLeft: page !== "login" ? 240 : 0, width: "100%" }}>
+        {page === "login" && (
+          <LoginPage onLogin={() => setPage("dashboard")} />
+        )}
+        {page === "dashboard" && (
+          <Dashboard
+            onNewIssuesClick={() => setPage("newissues")}
+            onPendingIssuesClick={() => setPage("pendingissues")}
+            onCompletedIssuesClick={() => setPage("completedissues")}
+          />
+        )}
+        {page === "newissues" && (
+          <NewIssues onDashboardClick={() => setPage("dashboard")} />
+        )}
+        {page === "pendingissues" && (
+          <PendingIssues onDashboardClick={() => setPage("dashboard")} />
+        )}
+        {page === "completedissues" && (
+          <CompletedIssues onDashboardClick={() => setPage("dashboard")} />
+        )}
+      </div>
     </div>
   );
 }

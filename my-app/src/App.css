@@ -6,12 +6,50 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.app {
+html, body, #root, .app {
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #f7f8fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.app {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: #f7f8fa;
+}
+
+.app > .sidebar {
+  flex-shrink: 0;
+  height: 100vh;
+}
+
+.app > div {
+  flex: 1;
+  margin-left: 240px; /* Sidebar width */
+  height: 100vh;
+  overflow: auto;
+  background: #f7f8fa;
+}
+
+/* Ensure main content areas are scrollable and fill space */
+.main-content,
+.ni-main,
+.pi-main,
+.ci-main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  background: transparent;
 }
 
 /* Login styles */

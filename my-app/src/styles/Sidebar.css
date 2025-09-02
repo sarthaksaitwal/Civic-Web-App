@@ -1,0 +1,121 @@
+.sidebar,
+.ni-sidebar,
+.pi-sidebar,
+.ci-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: #0a1733;
+  color: #fff;
+  border-right: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.logo,
+.ni-logo,
+.pi-logo,
+.ci-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #19e3d7;
+  padding: 28px 24px 24px 24px;
+  width: 100%;
+  border-bottom: none;
+}
+
+.sidebar nav ul,
+.ni-nav,
+.pi-nav,
+.ci-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  width: 100%;
+  padding: 0 18px;
+}
+
+.sidebar nav ul li,
+.ni-nav-item,
+.pi-nav-item,
+.ci-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #cfd8dc;
+  text-decoration: none;
+  font-size: 1.08rem;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+}
+
+.sidebar nav ul li.active,
+.ni-nav-item.active,
+.pi-nav-item.active,
+.ci-nav-item.active {
+  background: linear-gradient(90deg, #19e3d7 0%, #0a1733 100%);
+  color: #fff;
+  box-shadow: 0 0 0 2px #19e3d7;
+}
+
+.sidebar nav ul li:hover,
+.ni-nav-item:hover,
+.pi-nav-item:hover,
+.ci-nav-item:hover {
+  background: #162447;
+  color: #fff;
+}
+
+.sidebar nav ul li:not(.active),
+.ni-nav-item:not(.active),
+.pi-nav-item:not(.active),
+.ci-nav-item:not(.active) {
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .sidebar,
+  .ni-sidebar,
+  .pi-sidebar,
+  .ci-sidebar {
+    width: 64px;
+    min-width: 64px;
+    padding: 0;
+    align-items: center;
+  }
+  .logo span,
+  .ni-logo span,
+  .pi-logo span,
+  .ci-logo span {
+    display: none;
+  }
+  .sidebar nav ul,
+  .ni-nav,
+  .pi-nav,
+  .ci-nav {
+    padding: 0 6px;
+  }
+  .sidebar nav ul li,
+  .ni-nav-item,
+  .pi-nav-item,
+  .ci-nav-item {
+    justify-content: center;
+    font-size: 1.2rem;
+    padding: 10px 0;
+  }
+}

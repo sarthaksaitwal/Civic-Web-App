@@ -66,3 +66,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.main-content,
+.ni-main,
+.pi-main,
+.ci-main {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  /* For smooth scrolling on Windows */
+  scroll-behavior: smooth;
+  /* Optional: Prevent horizontal overflow */
+  overflow-x: hidden;
+}

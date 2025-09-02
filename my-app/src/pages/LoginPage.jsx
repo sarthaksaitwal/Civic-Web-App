@@ -2,7 +2,12 @@ import React from "react";
 import "../styles/LoginPage.css";
 import { FaUser, FaLock } from "react-icons/fa";
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onLogin();
+  };
+
   return (
     <div className="login-container">
       <div className="login-card">
@@ -21,7 +26,7 @@ const LoginPage = () => {
         </p>
 
         {/* Form */}
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Email/Username */}
           <div className="input-group">
             <input

@@ -101,6 +101,37 @@ html, body, #root {
   text-decoration: underline;
 }
 
+.options input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #f3f4f6; /* off-white */
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.options input[type="checkbox"]:checked {
+  border-color: #2563eb;
+  background: #f3f4f6;
+}
+
+.options input[type="checkbox"]:checked::after {
+  content: "✔";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 13px;
+  color: #2563eb;
+  pointer-events: none;
+}
+
 /* Primary button */
 .btn-primary {
   width: 100%;

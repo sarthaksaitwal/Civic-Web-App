@@ -1,9 +1,10 @@
 .dashboard {
-  display: flex;
+  width: 100vw;
   min-height: 100vh;
-  background: #f7f9fb;
-  color: #222;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f7f8fa;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .sidebar {
@@ -49,30 +50,40 @@
 
 .main-content {
   flex: 1;
-  padding: 32px 40px;
+  padding: 0;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
+  padding: 32px 36px 0 36px;
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .dashboard-header h1 {
   font-size: 2rem;
-  margin-bottom: 4px;
+  font-weight: 700;
+  color: #111827;
 }
 
 .dashboard-header p {
-  color: #888;
-  font-size: 1rem;
+  color: #6b7280;
+  font-size: 1.05rem;
+  margin-top: 2px;
 }
 
 .search-profile {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px;
 }
 
 .search-profile input {
@@ -81,44 +92,55 @@
   border: 1px solid #ddd;
   font-size: 1rem;
   width: 200px;
+  background: #fff;
+  color: #222;
 }
 
 .profile {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .profile img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 2px solid #2575fc;
+  object-fit: cover;
+  border: 2px solid #2563eb;
 }
 
 .profile strong {
-  display: block;
+  font-weight: 600;
+  color: #111827;
   font-size: 1rem;
 }
 
 .profile span {
-  font-size: 0.85rem;
-  color: #888;
+  color: #6b7280;
+  font-size: 0.92rem;
 }
 
 .notif {
   position: relative;
   font-size: 1.3rem;
-  margin-right: 8px;
+  color: #374151;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.notif:hover {
+  color: #2563eb;
 }
 
 .notif-count {
   position: absolute;
-  top: -8px;
-  right: -10px;
-  background: #ff3b3b;
+  left: 18px;
+  top: -6px;
+  background: #ef4444;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   border-radius: 50%;
   padding: 2px 6px;
 }
@@ -126,41 +148,52 @@
 .stats {
   display: flex;
   gap: 24px;
-  margin-bottom: 32px;
+  padding: 32px 36px 0 36px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .stat {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(60, 100, 180, 0.06);
-  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(60, 100, 180, 0.07);
+  padding: 24px 22px;
   flex: 1;
-  position: relative;
-  min-width: 160px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+}
+
+.stat:hover {
+  box-shadow: 0 4px 16px rgba(60, 100, 180, 0.18);
+  transform: translateY(-4px) scale(1.03);
+  background: #f0f4ff;
 }
 
 .stat-title {
-  font-size: 1rem;
-  color: #888;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
 }
 
 .stat-value {
   font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 6px;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 8px 0;
 }
 
 .stat-desc {
   font-size: 0.95rem;
-  color: #888;
+  color: #6b7280;
 }
 
 .stat-icon {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  margin-top: 10px;
 }
 
 .stat.new .stat-icon { color: #ff9800; }
@@ -171,24 +204,33 @@
 .dashboard-body {
   display: flex;
   gap: 32px;
+  padding: 32px 36px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .recent-issues, .issues-map {
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(60, 100, 180, 0.06);
-  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(60, 100, 180, 0.07);
+  padding: 24px 22px;
   flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
 }
 
 .recent-issues h2, .issues-map h2 {
-  font-size: 1.2rem;
-  margin-bottom: 16px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 18px;
 }
 
 .recent-issues ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .recent-issues li {
@@ -196,7 +238,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .recent-issues li:last-child {
@@ -204,43 +246,46 @@
 }
 
 .reported {
-  display: block;
-  font-size: 0.9rem;
-  color: #888;
+  color: #6b7280;
+  font-size: 0.92rem;
+  margin-left: 8px;
 }
 
 .badge {
-  padding: 4px 12px;
+  display: inline-block;
+  padding: 4px 14px;
   border-radius: 12px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 500;
   margin-right: 8px;
 }
 
-.badge.new { background: #ffe0b2; color: #ff9800; }
-.badge.progress { background: #bbdefb; color: #2196f3; }
-.badge.completed { background: #c8e6c9; color: #4caf50; }
+.badge.new { background: #fffbe6; color: #ff9800; }
+.badge.progress { background: #e3f2fd; color: #2196f3; }
+.badge.completed { background: #e8f5e9; color: #4caf50; }
 
 .due {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.92rem;
+  color: #6b7280;
 }
 
 .issues-map .map-placeholder {
   position: relative;
   width: 100%;
   height: 220px;
-  background: #f0f4ff;
-  border-radius: 8px;
+  background: #f3f4f6;
+  border-radius: 10px;
   overflow: hidden;
-  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.issues-map img {
+.issues-map .map-placeholder img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.9;
+  border-radius: 10px;
 }
 
 .map-dots {
@@ -253,13 +298,60 @@
 
 .dot {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  opacity: 0.8;
-  border: 2px solid #fff;
+  opacity: 0.85;
 }
 
 .dot.orange { background: #ff9800; }
 .dot.blue { background: #2196f3; }
 .dot.green { background: #4caf50; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .dashboard-body {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .dashboard-header,
+  .stats,
+  .dashboard-body {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .dashboard-body {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-header,
+  .stats,
+  .dashboard-body {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  .dashboard-body {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 540px) {
+  .dashboard-header,
+  .stats,
+  .dashboard-body {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .dashboard-body {
+    gap: 4px;
+  }
+  .stat {
+    min-width: 120px;
+    padding: 14px 8px;
+  }
+}
