@@ -12,20 +12,20 @@ export default function Sidebar({ active, onNavigate }) {
       </div>
       <nav>
         <ul>
-          <li className={active === "profile" ? "active" : ""} onClick={() => onNavigate("profile")}>
-            <FaUser /> Profile
-          </li>
           <li className={active === "dashboard" ? "active" : ""} onClick={() => onNavigate("dashboard")}>
             <FaChartBar /> Dashboard
           </li>
-          <li className={active === "issues" ? "active" : ""} onClick={() => onNavigate("newissues")}>
+          <li className={active === "issues" ? "active" : ""} onClick={() => onNavigate("issues")}>
             <FaExclamationTriangle /> Issues
           </li>
-          <li className={active === "reports" ? "active" : ""} onClick={() => onNavigate("reports")}>
-            <FaFileAlt /> Reports & Analytics
+          <li className={active === "profile" ? "active" : ""} onClick={() => onNavigate("profile")}>
+            <FaUser /> Profile
           </li>
           <li className={active === "settings" ? "active" : ""} onClick={() => onNavigate("settings")}>
             <FaCog /> Settings
+          </li>
+          <li className={active === "reports" ? "active" : ""} onClick={() => onNavigate("reports")}>
+            <FaFileAlt /> Reports & Analytics
           </li>
         </ul>
       </nav>

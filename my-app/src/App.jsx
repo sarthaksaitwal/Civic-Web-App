@@ -8,6 +8,7 @@ import NewIssues from "./pages/NewIssues.jsx";
 import PendingIssues from "./pages/PendingIssues.jsx";
 import CompletedIssues from "./pages/CompletedIssues.jsx";
 import ReportAna from "./pages/ReportAna.jsx";
+import IssuePage from "./pages/IssuePage.jsx";
 
 function App() {
   const [page, setPage] = useState("login");
@@ -15,6 +16,7 @@ function App() {
   // Map page to sidebar active key
   const getSidebarActive = () => {
     if (page === "dashboard") return "dashboard";
+    if (page === "issues") return "issues";
     if (page === "newissues" || page === "pendingissues" || page === "completedissues") return "issues";
     if (page === "profile") return "profile";
     if (page === "reports") return "reports";
@@ -40,6 +42,9 @@ function App() {
         )}
         {page === "profile" && (
           <Profile />
+        )}
+        {page === "issues" && (
+          <IssuePage />
         )}
         {page === "newissues" && (
           <NewIssues onDashboardClick={() => setPage("dashboard")} />
