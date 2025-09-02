@@ -9,9 +9,10 @@ import PendingIssues from "./pages/PendingIssues.jsx";
 import CompletedIssues from "./pages/CompletedIssues.jsx";
 import ReportAna from "./pages/ReportAna.jsx";
 import IssuePage from "./pages/IssuePage.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
 
 function App() {
-  const [page, setPage] = useState("login");
+  const [page, setPage] = useState("landing");
 
   // Map page to sidebar active key
   const getSidebarActive = () => {
@@ -26,10 +27,13 @@ function App() {
 
   return (
     <div className="app">
-      {page !== "login" && (
+      {page !== "landing" && page !== "login" && (
         <Sidebar active={getSidebarActive()} onNavigate={setPage} />
       )}
-      <div style={{ marginLeft: page !== "login" ? 240 : 0, width: "100%" }}>
+      <div style={{ marginLeft: page !== "landing" && page !== "login" ? 240 : 0, width: "100%" }}>
+        {page === "landing" && (
+          <LandingPage onGetStarted={() => setPage("login")} />
+        )}
         {page === "login" && (
           <LoginPage onLogin={() => setPage("dashboard")} />
         )}
