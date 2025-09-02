@@ -1,12 +1,11 @@
 import React from "react";
 import "./App.css";
+import LoginPage from "./pages/LoginPage.jsx";
 
 function App() {
   return (
-    <div className="app-container">
-      <main className="content">
-        <h2>Sidebar Preview</h2>
-      </main>
+    <div className="app">
+      <LoginPage />
     </div>
   );
 }
