@@ -1,16 +1,15 @@
-.app-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f9fafb;
-  height: 100vh;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.content {
-  padding: 40px 32px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  min-width: 320px;
-  text-align: center;
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
 }
