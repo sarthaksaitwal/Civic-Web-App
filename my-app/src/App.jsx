@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./App.css";
 import Sidebar from "./components/Sidebar.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import Profile from "./pages/Profile.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import NewIssues from "./pages/NewIssues.jsx";
 import PendingIssues from "./pages/PendingIssues.jsx";
 import CompletedIssues from "./pages/CompletedIssues.jsx";
-
+import ReportAna from "./pages/ReportAna.jsx";
 
 function App() {
   const [page, setPage] = useState("login");
@@ -37,6 +38,9 @@ function App() {
             onCompletedIssuesClick={() => setPage("completedissues")}
           />
         )}
+        {page === "profile" && (
+          <Profile />
+        )}
         {page === "newissues" && (
           <NewIssues onDashboardClick={() => setPage("dashboard")} />
         )}
@@ -45,6 +49,9 @@ function App() {
         )}
         {page === "completedissues" && (
           <CompletedIssues onDashboardClick={() => setPage("dashboard")} />
+        )}
+        {page === "reports" && (
+          <ReportAna />
         )}
       </div>
     </div>
