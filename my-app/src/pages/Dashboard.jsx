@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Dashboard.css";
+import DashboardNavbar from "../components/DashboardNavbar.jsx";
 
 export default function Dashboard({ onNewIssuesClick, onPendingIssuesClick, onCompletedIssuesClick }) {
   return (
@@ -9,18 +10,15 @@ export default function Dashboard({ onNewIssuesClick, onPendingIssuesClick, onCo
           <h1>Dashboard</h1>
           <p>Welcome back, manage civic issues efficiently</p>
         </div>
-        <div className="search-profile">
-          <input type="text" placeholder="Search issues..." />
-          <div className="profile">
-            <span className="notif">🔔<span className="notif-count">3</span></span>
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin" />
-            <div>
-              <strong>John Admin</strong>
-              <span>Administrator</span>
-            </div>
+        <div className="profile">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin" />
+          <div>
+            <strong>John Admin</strong>
+            <span>Administrator</span>
           </div>
         </div>
       </header>
+      <DashboardNavbar />
       <section className="stats">
         <div className="stat new" onClick={onNewIssuesClick} style={{ cursor: "pointer" }}>
           <div className="stat-title">New Issues</div>
