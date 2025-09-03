@@ -4,9 +4,8 @@ import { FaEye, FaEdit, FaTrash, FaFilter } from "react-icons/fa";
 
 const issues = [
   {
-    title: "Pothole Repair on Oak Street",
+    tokenNo: "ISS-2024-001",
     desc: "Large pothole causing traffic hazards at Oak Street & 3rd Avenue intersection. Multiple residents have reported tire damage.",
-    img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=80&q=80",
     category: "Roads & Transportation",
     date: "Dec 15, 2024 - 2:30 PM",
     zone: "North District",
@@ -14,9 +13,8 @@ const issues = [
     statusColor: "pending",
   },
   {
-    title: "Street Light Not Working on Main Avenue",
+    tokenNo: "ISS-2024-002",
     desc: "Street light has been out for over a week creating safety concerns for pedestrians and drivers during nighttime.",
-    img: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=80&q=80",
     category: "Electricity",
     date: "Dec 14, 2024 - 9:15 AM",
     zone: "East District",
@@ -24,9 +22,8 @@ const issues = [
     statusColor: "progress",
   },
   {
-    title: "Overflowing Garbage Bins on Pine Street",
+    tokenNo: "ISS-2024-003",
     desc: "Multiple garbage bins are overflowing attracting pests and creating unsanitary conditions in the residential area.",
-    img: "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=80&q=80",
     category: "Waste Management",
     date: "Dec 13, 2024 - 4:45 PM",
     zone: "South District",
@@ -34,9 +31,8 @@ const issues = [
     statusColor: "resolved",
   },
   {
-    title: "Water Pipe Burst on Cedar Lane",
+    tokenNo: "ISS-2024-004",
     desc: "Water pipe burst causing flooding and water supply disruption in the area.",
-    img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=80&q=80",
     category: "Water",
     date: "Dec 12, 2024 - 11:00 AM",
     zone: "West District",
@@ -55,8 +51,6 @@ export default function IssuePage() {
           <p>Manage and track all civic issues reported by citizens</p>
         </div>
         <div className="issue-header-actions">
-          <button className="issue-btn-primary">+ Report New Issue</button>
-          <button className="issue-btn-filter"><FaFilter /> Filter</button>
           <div className="issue-search">
             <input
               type="text"
@@ -85,6 +79,7 @@ export default function IssuePage() {
           <option>Pending</option>
           <option>In Progress</option>
           <option>Resolved</option>
+          <option>Manual Filter</option>
         </select>
         <select>
           <option>All Departments</option>
@@ -111,29 +106,22 @@ export default function IssuePage() {
       </div>
       <div className="issue-list">
         {issues.map((issue, idx) => (
-          <div className="issue-card" key={idx}>
-            <img src={issue.img} alt={issue.title} className="issue-card-img" />
-            <div className="issue-card-content">
-              <div className="issue-card-title">{issue.title}</div>
-              <div className="issue-card-desc">{issue.desc}</div>
-              <div className="issue-card-meta">
-                <span className="issue-card-meta-item">
-                  <span role="img" aria-label="category">🏢</span> {issue.category}
-                </span>
-                <span className="issue-card-meta-item">
-                  <span role="img" aria-label="date">📅</span> {issue.date}
-                </span>
-                <span className="issue-card-meta-item">
-                  <span role="img" aria-label="zone">📍</span> {issue.zone}
-                </span>
-              </div>
+          <div className="issue-card compact" key={idx}>
+          <div className="issue-card-content">
+            <div className="issue-card-token" style={{ fontWeight: 'bold', fontSize: '1.1rem', marginBottom: '6px' }}>{issue.tokenNo}</div>
+            <div className="issue-card-desc">{issue.desc}</div>
+            <div className="issue-card-meta">
+              <span className="issue-card-meta-item">
+                <span role="img" aria-label="category">🏢</span> {issue.category}
+              </span>
+              <span className="issue-card-meta-item">
+                <span role="img" aria-label="date">📅</span> {issue.date}
+              </span>
+              <span className="issue-card-meta-item">
+                <span role="img" aria-label="zone">📍</span> {issue.zone}
+              </span>
             </div>
-            <div className="issue-card-actions">
-              <span className={`issue-status-badge ${issue.statusColor}`}>{issue.status}</span>
-              <button className="issue-action-btn"><FaEye /></button>
-              <button className="issue-action-btn"><FaEdit /></button>
-              <button className="issue-action-btn"><FaTrash /></button>
-            </div>
+          </div>
           </div>
         ))}
       </div>
